@@ -37,11 +37,19 @@ def format_date(person):
 def save_person_to_file(person):
     f = open(f"output/{person['Name']}.md", "w")
     f.write(f"tags:: [[people]]\n")
+    notes = ""
     for field in list(person.keys())[1:]:
         if field == "Name":
             continue
+        if field == "Notes":
+            notes = person[field]
+            continue
         write_field = field.replace("-", "").replace(" ","-")
         f.write(f"{write_field}:: {person[field]}\n")
+    f.write(f"\n"
+            f"- # Notes\n"
+            f"\t- {notes}")
+
 
 
 data = read_csv("contacts.csv")
