@@ -40,7 +40,8 @@ def save_person_to_file(person):
     for field in list(person.keys())[1:]:
         if field == "Name":
             continue
-        f.write(f"{field}:: {person[field]}\n")
+        write_field = field.replace("-", "").replace(" ","-")
+        f.write(f"{write_field}:: {person[field]}\n")
 
 
 data = read_csv("contacts.csv")
