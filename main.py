@@ -1,6 +1,8 @@
 import csv
+
+
 def read_csv(file):
-    headers =[]
+    headers = []
     data = []
     with open(file) as f:
         reader = csv.reader(f)
@@ -20,15 +22,16 @@ def read_csv(file):
                 data.append(person)
     return data
 
+
 def format_phone_number(person):
     if "Phone Number" in person:
         person["Phone Number"] = person["Phone Number"].replace(" ", "")
+
 
 def format_date(person):
     if "Birthday" in person:
         if "/" in person["Birthday"]:
             person["Birthday"] = f'[[{person["Birthday"].replace("/", "-")}]]'
-            print(person["Birthday"])
 
 
 def save_person_to_file(person):
