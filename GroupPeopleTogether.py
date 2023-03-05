@@ -24,7 +24,7 @@ def main():
         for other_person in people:
             if person == other_person:
                 continue
-            person_file.write(f"\n- {relationship} - [[{person}]]")
+            person_file.write(f"\n- {relationship} - [[{other_person}]]")
         person_file.close()
 
 root = tk.Tk()
